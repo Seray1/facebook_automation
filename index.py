@@ -8,7 +8,7 @@ driver = webdriver.Chrome()
 driver.get('https://www.facebook.com/')
 wait = WebDriverWait(driver, 10)
 # login details
-phonenumber = 'your phonenumber of email'
+phonenumber = 'your phone number or email'
 password = 'your password'
 def scroll_and_click(driver,xpath,wait):
     element_to_click = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
@@ -27,7 +27,6 @@ def scroll_and_click_by_text(driver,text,wait):
 
 def automate_facebook():
     try:
-        driver.execute_script("document.body.style.zoom='80%'")
         scroll_and_fill(driver,'//*[@id="email"]', phonenumber,wait)
         scroll_and_fill(driver,'//*[@id="pass"]', password,wait)
         time.sleep(2)
